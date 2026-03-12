@@ -10,10 +10,10 @@
   margin: auto;
 }
 .about-me {
-  padding: 50px 0px;
+  padding: 30px 0px;
   padding-bottom: 0;
-  width: 500px;
-  max-width: calc(100% - 15px);
+  width: 100%;
+  max-width: 100%;
 }
 .about-me h3 {
   font-size: 25px;
@@ -24,15 +24,20 @@
 }
 
 .about-me p {
-  font-size: 33px;
-  font-weight: 600;
-  line-height: 36px;
-  letter-spacing: 1px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: 0.5px;
+  color: #d1d5db; /* Softer readable white */
 }
 
 @media only screen and (min-width: 600px) {
   .about-section {
     justify-content: center;
+  }
+  .about-me p {
+    font-size: 22px;
+    line-height: 32px;
   }
 }
 @media only screen and (min-width: 768px) {

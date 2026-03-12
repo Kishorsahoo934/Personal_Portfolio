@@ -36,12 +36,15 @@
 
 .carousel-track {
   display: flex;
+  width: 300%;
+  /* 100% * number of projects */
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
 }
 
 .carousel-slide {
-  min-width: 100%;
+  width: 33.33333%;
+  /* 100% / number of projects */
   flex-shrink: 0;
   box-sizing: border-box;
   padding: 50px 0;
