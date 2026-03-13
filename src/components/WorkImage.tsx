@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MdArrowOutward } from "react-icons/md";
+import "./styles/Work.css";
 
 interface Props {
   image: string;
@@ -9,36 +10,35 @@ interface Props {
 }
 
 const WorkImage = (props: Props) => {
-  const [isVideo, setIsVideo] = useState(false);
-  const [video, setVideo] = useState("");
-  const handleMouseEnter = async () => {
-    if (props.video) {
-      setIsVideo(true);
-      const response = await fetch(`src/assets/${props.video}`);
-      const blob = await response.blob();
-      const blobUrl = URL.createObjectURL(blob);
-      setVideo(blobUrl);
+  const [showToast, setShowToast] = useState(false);
+
+  const handleClick = () => {
+    if (props.link) {
+      window.open(props.link, '_blank');
+    } else {
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 2000);
     }
   };
 
   return (
-    <div className="work-image">
-      <a
+    <div className="work-image" style={{ position: "relative" }}>
+      <div
         className="work-image-in"
-        href={props.link}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={() => setIsVideo(false)}
-        target="_blank"
-        data-cursor={"disable"}
+        onClick={handleClick}
+        style={{ cursor: props.link ? "pointer" : "default" }}
+        data-cursor={props.link ? "icons" : "disable"}
       >
+        <div className={`work-toast ${showToast ? 'show' : ''}`}>
+          No website available
+        </div>
         {props.link && (
           <div className="work-link">
             <MdArrowOutward />
           </div>
         )}
         <img src={props.image} alt={props.alt} />
-        {isVideo && <video src={video} autoPlay muted playsInline loop></video>}
-      </a>
+      </div>
     </div>
   );
 };

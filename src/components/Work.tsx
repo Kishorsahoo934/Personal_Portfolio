@@ -105,17 +105,10 @@ const Work = () => {
                           <span className="tools-label">Tools & Features</span>
                           <p>{project.tools}</p>
                         </div>
-                        {/* @ts-ignore */}
-                        {project.link && (
-                          <div style={{ marginTop: "1rem" }}>
-                            {/* @ts-ignore */}
-                            <a href={project.link} target="_blank" rel="noopener noreferrer" style={{ color: "#aaa", textDecoration: "underline", fontSize: "14px" }}>Link</a>
-                          </div>
-                        )}
                       </div>
                     </div>
                     <div className="carousel-image-wrapper">
-                      <WorkImage image={project.image} alt={project.title} />
+                      <WorkImage image={project.image} alt={project.title} link={project.link} />
                     </div>
                   </div>
                 </div>

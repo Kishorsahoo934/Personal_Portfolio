@@ -144,8 +144,8 @@ const TechStack = () => {
       },
       {
         root: null,
-        rootMargin: "0px",
-        threshold: 0.1, // Trigger when 10% of "work" enters view
+        rootMargin: "0px 0px 1000px 0px", // Wake up early to compile shaders
+        threshold: 0,
       }
     );
 
@@ -180,6 +180,8 @@ const TechStack = () => {
         camera={{ position: [0, 0, 20], fov: 32.5, near: 1, far: 100 }}
         onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
         className="tech-canvas"
+        dpr={window.devicePixelRatio > 1.5 ? 1.5 : [1, 1.5]}
+        frameloop={isActive ? "always" : "demand"}
       >
         <ambientLight intensity={1} />
         <spotLight
@@ -191,7 +193,7 @@ const TechStack = () => {
           shadow-mapSize={[512, 512]}
         />
         <directionalLight position={[0, 5, -4]} intensity={2} />
-        <Physics gravity={[0, 0, 0]}>
+        <Physics gravity={[0, 0, 0]} paused={!isActive}>
           <Pointer isActive={isActive} />
           {spheres.map((props, i) => (
             <SphereGeo

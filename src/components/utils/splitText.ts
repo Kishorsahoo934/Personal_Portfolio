@@ -49,9 +49,6 @@ export default function setSplitText() {
       linesClass: "split-line",
     });
 
-    // Make words invisible before animation
-    gsap.set(para.split.words, { autoAlpha: 0 });
-
     para.anim = gsap.fromTo(
       para.split.words,
       { autoAlpha: 0, y: 80 },
@@ -75,8 +72,6 @@ export default function setSplitText() {
       type: "chars,lines",
       linesClass: "split-line",
     });
-
-    gsap.set(title.split.chars, { autoAlpha: 0 });
 
     title.anim = gsap.fromTo(
       title.split.chars,
