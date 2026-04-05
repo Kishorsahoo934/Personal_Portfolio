@@ -98,7 +98,15 @@ const Work = () => {
                         <h3>0{index + 1}</h3>
                       </div>
                       <div className="carousel-details">
-                        <h4>{project.title}</h4>
+                        <h4>
+                          {project.link ? (
+                            <a href={project.link} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                              {project.title}
+                            </a>
+                          ) : (
+                            project.title
+                          )}
+                        </h4>
                         <p className="carousel-category">
                           {project.category}
                         </p>

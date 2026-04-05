@@ -12,33 +12,51 @@ interface Props {
 const WorkImage = (props: Props) => {
   const [showToast, setShowToast] = useState(false);
 
-  const handleClick = () => {
-    if (props.link) {
-      window.open(props.link, '_blank');
-    } else {
+  const handleClick = (e: React.MouseEvent) => {
+    if (!props.link) {
+      e.preventDefault();
       setShowToast(true);
       setTimeout(() => setShowToast(false), 2000);
     }
   };
 
+  const Content = (
+    <>
+      <div className={`work-toast ${showToast ? 'show' : ''}`}>
+        No website available
+      </div>
+      {props.link && (
+        <div className="work-link">
+          <MdArrowOutward />
+        </div>
+      )}
+      <img src={props.image} alt={props.alt} />
+    </>
+  );
+
   return (
     <div className="work-image" style={{ position: "relative" }}>
-      <div
-        className="work-image-in"
-        onClick={handleClick}
-        style={{ cursor: props.link ? "pointer" : "default" }}
-        data-cursor={props.link ? "icons" : "disable"}
-      >
-        <div className={`work-toast ${showToast ? 'show' : ''}`}>
-          No website available
+      {props.link ? (
+        <a 
+          href={props.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="work-image-in"
+          style={{ cursor: "pointer", display: "block" }}
+          data-cursor="icons"
+        >
+          {Content}
+        </a>
+      ) : (
+        <div
+          className="work-image-in"
+          onClick={handleClick}
+          style={{ cursor: "default" }}
+          data-cursor="disable"
+        >
+          {Content}
         </div>
-        {props.link && (
-          <div className="work-link">
-            <MdArrowOutward />
-          </div>
-        )}
-        <img src={props.image} alt={props.alt} />
-      </div>
+      )}
     </div>
   );
 };
