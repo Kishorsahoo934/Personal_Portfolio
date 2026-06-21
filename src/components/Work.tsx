@@ -30,18 +30,12 @@ const projects = [
     link: "https://farmsathi-app.vercel.app/"
   },
   {
-
-title: "AlgoDocs",
-
-category: "RAG Application",
-
-tools: "Python, LangChain, LangGraph, Docker, AWS",
-
-image: enterpriseImg,
-
-link: "https://enterprise-application-brown.vercel.app/"
-
-}
+    title: "AlgoDocs",
+    category: "RAG Application",
+    tools: "Python, LangChain, LangGraph, Docker, AWS",
+    image: enterpriseImg,
+    link: "https://enterprise-application-brown.vercel.app/"
+  }
 ];
 
 const Work = () => {
@@ -109,7 +103,7 @@ const Work = () => {
                   <div className="carousel-content">
                     <div className="carousel-info">
                       <div className="carousel-number">
-                        <h3>0{index + 1}</h3>
+                        <h3>{String(index + 1).padStart(2, '0')}</h3>
                       </div>
                       <div className="carousel-details">
                         <h4>
