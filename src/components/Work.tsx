@@ -5,6 +5,7 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 import prithivilokImg from "../assets/Prithivilok.png";
 import cosmicwatchImg from "../assets/Cosmicwatch.png";
 import farmsathiImg from "../assets/Farmsathi.png";
+import enterpriseImg from "../assets/algodocs.png"
 
 const projects = [
   {
@@ -27,7 +28,20 @@ const projects = [
     tools: "Python, LangChain, LangGraph",
     image: farmsathiImg,
     link: "https://farmsathi-app.vercel.app/"
-  }
+  },
+  {
+
+title: "AlgoDocs",
+
+category: "RAG Application",
+
+tools: "Python, LangChain, LangGraph, Docker, AWS",
+
+image: enterpriseImg,
+
+link: "https://enterprise-application-brown.vercel.app/"
+
+}
 ];
 
 const Work = () => {
