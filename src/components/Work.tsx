@@ -34,7 +34,7 @@ const projects = [
     category: "RAG Application",
     tools: "Python, LangChain, LangGraph, Docker, AWS",
     image: enterpriseImg,
-    link: "https://enterprise-application-brown.vercel.app/"
+    link: "https://algo-docs-plum.vercel.app/"
   }
 ];
 
